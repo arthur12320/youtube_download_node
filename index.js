@@ -19,7 +19,7 @@ let youtube_id = args.i
 if(querry_strings != null){  //download by querry strings
     console.log(`Input querry: ${querry_strings}`);
     //for testing
-    //let querry_strings = '1hr long light jazz'
+    //let querry_strings = "1hr long light jazz"
 
     let title;
 
@@ -33,15 +33,17 @@ if(querry_strings != null){  //download by querry strings
     .then(url => scrape.getPage(url))
     .then(page => down.downloadMp3(page,sanitize(title)))
 
+}else if(youtube_id != null){  //download by youtube id
+    console.log(`input youtube id: ${youtube_id}`);
+
+    //for testing 
+    //let youtube_id = "RM7lw0Ovzq0"
+
+    let title;
 }
 
 
 
-
-
-
-
-//download by youtube id
 
 
 
