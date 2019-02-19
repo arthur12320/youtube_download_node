@@ -12,26 +12,36 @@ let down = require('./download/download')
 
 const args = yargs.argv;
 
-let vin = args.v;
-console.log(vin);
-let arg = vin.replace(new RegExp('_', 'g')," ");
-//let arg = '1hr long light jazz'
-console.log(arg);
-let title;
+let querry_strings = args.q;
+let youtube_id = args.i
 
 
+if(querry_strings != null){  //download by querry strings
+    console.log(`Input querry: ${querry_strings}`);
+    //for testing
+    //let querry_strings = '1hr long light jazz'
 
-ytjson.getQueryJson(arg)
+    let title;
+
+    
+    ytjson.getQueryJson(querry_strings)
     .then(json=>{
         title = manjsontitle.getFirstTitle(json);
-        console.log(title);
+        console.log(`The title choosen was: ${title}`);
         return manjson.getFirstUrl(json)
     })
     .then(url => scrape.getPage(url))
     .then(page => down.downloadMp3(page,sanitize(title)))
-    
+
+}
 
 
+
+
+
+
+
+//download by youtube id
 
 
 

@@ -7,7 +7,7 @@ module.exports= {
         while (i < items.length) {
             //console.log(data.items[i]);
             if (items[i].id.kind === 'youtube#video') {
-                console.log(items[i].id.videoId);
+                console.log(`The youtube id: ${items[i].id.videoId}`);
                 id = items[i].id.videoId;
                 break;
             }
